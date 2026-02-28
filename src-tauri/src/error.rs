@@ -22,9 +22,6 @@ pub enum AppError {
 
     #[error("I/O error: {0}")]
     Io(#[from] std::io::Error),
-
-    #[error("Dialog failed: {0}")]
-    DialogFailed(String),
 }
 
 impl Serialize for AppError {
