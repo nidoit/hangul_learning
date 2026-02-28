@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DocConvert</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>DocConvert</h1>
+      <p class="subtitle">PDF → Markdown &nbsp;|&nbsp; XLSX → CSV</p>
+    </header>
+
+    <main>
+      <!-- Folder Selection -->
+      <section id="folder-section">
+        <div class="folder-row">
+          <label>Source Folder:</label>
+          <span id="source-path" class="path-display">No folder selected</span>
+          <button id="btn-select-source" class="btn btn-primary">Browse…</button>
+        </div>
+        <div class="folder-row">
+          <label>Output Folder:</label>
+          <span id="output-path" class="path-display">—</span>
+          <button id="btn-select-output" class="btn btn-secondary">Change</button>
+        </div>
+      </section>
+
+      <!-- File Discovery Info -->
+      <section id="file-info" class="hidden">
+        <div class="file-counts">
+          <span class="badge badge-pdf"><span id="pdf-count">0</span> PDFs</span>
+          <span class="badge badge-xlsx"><span id="xlsx-count">0</span> XLSX</span>
+          <span class="badge badge-size">Total: <span id="total-size">0</span></span>
+        </div>
+      </section>
+
+      <!-- Options -->
+      <section id="options-section" class="hidden">
+        <label class="checkbox-label">
+          <input type="checkbox" id="overwrite-check" />
+          Overwrite existing files
+        </label>
+      </section>
+
+      <!-- Convert Button -->
+      <section id="action-section" class="hidden">
+        <button id="btn-convert" class="btn btn-convert">Start Conversion</button>
+      </section>
+
+      <!-- Progress -->
+      <section id="progress-section" class="hidden">
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+          <span id="progress-text" class="progress-text">0 / 0</span>
+        </div>
+        <p id="current-file" class="current-file">Preparing…</p>
+      </section>
+
+      <!-- Summary -->
+      <section id="summary-section" class="hidden">
+        <h2>Conversion Complete</h2>
+        <div class="summary-stats">
+          <span class="stat stat-success"><span id="success-count">0</span> succeeded</span>
+          <span class="stat stat-fail"><span id="fail-count">0</span> failed</span>
+          <span class="stat stat-time">in <span id="total-time">0</span>s</span>
+        </div>
+        <div id="error-list" class="error-list hidden"></div>
+        <div class="summary-actions">
+          <button id="btn-copy-summary" class="btn btn-secondary">Copy Report</button>
+          <button id="btn-new" class="btn btn-primary">New Conversion</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="main.js" type="module"></script>
+</body>
+</html>

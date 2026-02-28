@@ -1,0 +1,31 @@
+[package]
+name = "docconvert"
+version = "1.0.0"
+description = "Cross-platform document converter: PDF to Markdown, XLSX to CSV"
+edition = "2021"
+
+[lib]
+name = "docconvert_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "docconvert"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+walkdir = "2"
+calamine = "0.26"
+csv = "1"
+chrono = "0.4"
+log = "0.4"
+env_logger = "0.11"
+pdf-extract = "0.7"
