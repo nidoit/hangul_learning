@@ -215,3 +215,4 @@ els.btnNew.addEventListener("click", () => {
 
   hide(els.fileInfo, els.optionsSection, els.actionSection, els.progressSection, els.summarySection);
 });
+
